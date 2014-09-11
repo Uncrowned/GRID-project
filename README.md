@@ -1,4 +1,4 @@
-Masha=)
+Masha
 
 GRID-project
 ============
