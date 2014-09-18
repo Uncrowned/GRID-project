@@ -1,0 +1,140 @@
+Apache 2.4    		MSVC9 (Visual C++ 2008)     TS	(Thead safe)
+PHP Version 5.4.14 	MSVC9 (Visual C++ 2008)     TS  (Thead safe)
+
+oracle.com 
+MySQL SERVER 5.5
+
+
+Настройка Apache:
+C:/Apache/conf/httpd.conf -- 
+
+XAMPP - веб-сервер для блондинок
+
+
+C:/Apache/conf/extra/httpd-vhosts.conf
+
+Секцию заполняем так:
+<VirtualHost *:80>
+    ServerAdmin myemail.mail.ru
+    DocumentRoot "c:/Apache/htdocs/server.ru"
+    ServerName server.lru
+    ServerAlias server.lru
+    ErrorLog "logs/server-error.log"
+    CustomLog "logs/server-access.log" common
+</VirtualHost>
+
+А последним идет localhost:
+
+<VirtualHost *:80>
+    ServerName localhost
+</VirtualHost>
+
+
+
+C:\Windows\System32\Drivers\etc\hosts
+
+127.0.0.1 server.lru
+
+
+Пуск - Панель управления - Администрирование - Службы
+net stop apache2.4
+net start apache2.4
+
+Пуск - Выполнить
+cmd
+
+или поставить Far Manager
+
+
+
+Мэтт Зандстра
+PHP - Объекты, шаблоны и методики программирования.
+
+
+
+http://www.server.lru/index.php?api=getNode&id=5
+
+http://www.server.lru/news/5-v-chkalovskom-trolleibus-provalilsya-v-yamu
+
+SEO URL
+
+
+.htaccess
+
+RewriteEngine on  
+Options +FollowSymlinks
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^?&]*) index.php?rewritequery=$1 [L,QSA]
+
+
+/news/5-v-chkalovskom-trolleibus-provalilsya-v-yamu
+
+
+
+<?php
+
+echo $_SERVER["REQUEST_URI];
+
+//  /news/5-v-chkalovskom-trolleibus-provalilsya-v-yamu
+
+?>
+
+
+http://www.server.lru/api/registerNode.xml?id=5&name=Computer1
+http://www.server.lru/api/registerNode.json?id=6&name=Computer7
+
+
+
+ПОЧИТАТЬ
+XML -- победа!!!!
+JSON
+
+
+
+TODO:
+ТЗ на веб-сервер
+
+Мэтт Зандстра
+PHP - Объекты, шаблоны и методики программирования.
+
+
+Шаблон Command
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
