@@ -5,15 +5,15 @@ oracle.com
 MySQL SERVER 5.5
 
 
-Настройка Apache:
+РќР°СЃС‚СЂРѕР№РєР° Apache:
 C:/Apache/conf/httpd.conf -- 
 
-XAMPP - веб-сервер для блондинок
+XAMPP - РІРµР±-СЃРµСЂРІРµСЂ РґР»СЏ Р±Р»РѕРЅРґРёРЅРѕРє
 
 
 C:/Apache/conf/extra/httpd-vhosts.conf
 
-Секцию заполняем так:
+РЎРµРєС†РёСЋ Р·Р°РїРѕР»РЅСЏРµРј С‚Р°Рє:
 <VirtualHost *:80>
     ServerAdmin myemail.mail.ru
     DocumentRoot "c:/Apache/htdocs/server.ru"
@@ -23,7 +23,7 @@ C:/Apache/conf/extra/httpd-vhosts.conf
     CustomLog "logs/server-access.log" common
 </VirtualHost>
 
-А последним идет localhost:
+Рђ РїРѕСЃР»РµРґРЅРёРј РёРґРµС‚ localhost:
 
 <VirtualHost *:80>
     ServerName localhost
@@ -36,19 +36,19 @@ C:\Windows\System32\Drivers\etc\hosts
 127.0.0.1 server.lru
 
 
-Пуск - Панель управления - Администрирование - Службы
+РџСѓСЃРє - РџР°РЅРµР»СЊ СѓРїСЂР°РІР»РµРЅРёСЏ - РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ - РЎР»СѓР¶Р±С‹
 net stop apache2.4
 net start apache2.4
 
-Пуск - Выполнить
+РџСѓСЃРє - Р’С‹РїРѕР»РЅРёС‚СЊ
 cmd
 
-или поставить Far Manager
+РёР»Рё РїРѕСЃС‚Р°РІРёС‚СЊ Far Manager
 
 
 
-Мэтт Зандстра
-PHP - Объекты, шаблоны и методики программирования.
+РњСЌС‚С‚ Р—Р°РЅРґСЃС‚СЂР°
+PHP - РћР±СЉРµРєС‚С‹, С€Р°Р±Р»РѕРЅС‹ Рё РјРµС‚РѕРґРёРєРё РїСЂРѕРіСЂР°РјРјРёСЂРѕРІР°РЅРёСЏ.
 
 
 
@@ -86,20 +86,20 @@ http://www.server.lru/api/registerNode.json?id=6&name=Computer7
 
 
 
-ПОЧИТАТЬ
-XML -- победа!!!!
+РџРћР§РРўРђРўР¬
+XML -- РїРѕР±РµРґР°!!!!
 JSON
 
 
 
 TODO:
-ТЗ на веб-сервер
+РўР— РЅР° РІРµР±-СЃРµСЂРІРµСЂ
 
-Мэтт Зандстра
-PHP - Объекты, шаблоны и методики программирования.
+РњСЌС‚С‚ Р—Р°РЅРґСЃС‚СЂР°
+PHP - РћР±СЉРµРєС‚С‹, С€Р°Р±Р»РѕРЅС‹ Рё РјРµС‚РѕРґРёРєРё РїСЂРѕРіСЂР°РјРјРёСЂРѕРІР°РЅРёСЏ.
 
 
-Шаблон Command
+РЁР°Р±Р»РѕРЅ Command
 
 
 
