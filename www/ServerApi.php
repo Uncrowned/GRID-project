@@ -28,7 +28,7 @@
 			$node = new Node($ip, $name);
 			
 			$sql = "INSERT INTO nodes SET name=:name, ip=:ip, status=:status, date_registration=:date, rang=:rang";
-			$arg = array(":name" => $node->getName(), ":ip" => $node->getIP(), ":status" => $node->getStatus(), ":date" => $node->getDate(), ":rang" => $node->getRang());
+			$arg = array(":name" => $node->getName(), ":ip" => $node->getIP(true), ":status" => $node->getStatus(), ":date" => $node->getDate(), ":rang" => $node->getRang());
 			
 			$this->model->insert($sql, $arg);
 			
