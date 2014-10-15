@@ -1,9 +1,9 @@
 <?php
 	if(!empty($_POST))
-	{
-		//$f = fopen("test.txt","w");
-		//fwrite($f,var_export($_POST, true));
-		//fclose($f);
+    {
+        $f = fopen("temp/".$_POST['filename'],"w");
+        fwrite($f, $_POST['file']);
+        fclose($f);
         echo "файл принят";
 	}
 	else
@@ -12,5 +12,3 @@
 		fwrite($f,"Не было поста!!");
 		fclose($f);
 	}
-    //echo '<img src="'.$_POST['file'].'"><br>';
-    echo "privet";
