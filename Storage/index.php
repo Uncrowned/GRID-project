@@ -1,14 +1,16 @@
 <?php
 	if(!empty($_POST))
 	{
-		$f = fopen("test.txt","w");
-		fwrite($f,var_export($_POST, true));
-		fclose($f);
+		//$f = fopen("test.txt","w");
+		//fwrite($f,var_export($_POST, true));
+		//fclose($f);
+        echo "Ñ„Ð°Ð¹Ð» Ð¿Ñ€Ð¸Ð½ÑÑ‚";
 	}
 	else
 	{
 		$f = fopen("test.txt","w");
-		fwrite($f,"Íå áûëî ïîñòà!!");
+		fwrite($f,"ÐÐµ Ð±Ñ‹Ð»Ð¾ Ð¿Ð¾ÑÑ‚Ð°!!");
 		fclose($f);
 	}
-?>
+    //echo '<img src="'.$_POST['file'].'"><br>';
+    echo "privet";
