@@ -1,7 +1,7 @@
 <?php 
 	
 	class Node {
-	
+		//Нужно добавить тип ноды
 		private $id;
 		
 		private $name;
