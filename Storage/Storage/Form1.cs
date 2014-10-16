@@ -24,7 +24,7 @@ namespace Storage
             req.ContentType = "application/x-www-form-urlencoded";
 
             var listarr = new List<byte>();
-            byte[] sentData = Encoding.GetEncoding(1251).GetBytes("filename="+fileName+"&");
+            byte[] sentData = Encoding.GetEncoding(1251).GetBytes("filename=" + fileName + "&");
             listarr = sentData.ToList();
             sentData = Encoding.GetEncoding(1251).GetBytes("file=");
             listarr.AddRange(sentData);
@@ -46,9 +46,9 @@ namespace Storage
             string Out = String.Empty;
             while (count > 0)
             {
-              String str = new String(read, 0, count);
-              Out += str;
-              count = sr.Read(read, 0, 256);
+                var str = new String(read, 0, count);
+                Out += str;
+                count = sr.Read(read, 0, 256);
             }
             return Out;
         }
@@ -58,8 +58,10 @@ namespace Storage
             openFileDialog1.ShowDialog();
             if (openFileDialog1.FileName != null)
             {
-                textBox1.Text = POST("http://server.serv/", openFileDialog1.FileName, openFileDialog1.SafeFileName);
-            }            
+                textBox1.Text = POST(
+                    "http://server.serv/Storage.php", openFileDialog1.FileName, openFileDialog1.SafeFileName
+                    );
+            }
         }
 
 
