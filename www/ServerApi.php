@@ -6,29 +6,39 @@
 		
 		private $coder;
 		
+		private $decoder;
+		
 		public function __construct() {
 			$this->model = new Model();
 			$this->coder = new Coder();
+			$this->decoder = new Decoder();
 		}
 		
-		public function getTask($node) {
-			
+		public function getTask($id) {
+			$node = $this->model->selectNodeBy("id", $id);
+			if(empty($node)) {
+				$this->coder->renderError("Can't find Node with ID = ".$id);
+			}
 		}
 		
-		public function setTaskDone($node) {
+		public function setTaskDone($id, $answer) {
 		
 		}
 
-		public function shutdown($node) {
+		public function shutdown($id) {
 		
 		}
 
-		public function register($name) {
-			$ip = $_SERVER['REMOTE_ADDR'];
-			$node = new Node($ip, $name);
+		public function saveFile($file) {
 			
-			$sql = "INSERT INTO nodes SET name=:name, ip=:ip, status=:status, date_registration=:date, rang=:rang";
-			$arg = array(":name" => $node->getName(), ":ip" => $node->getIP(true), ":status" => $node->getStatus(), ":date" => $node->getDate(), ":rang" => $node->getRang());
+		}
+		
+		public function register($name, $type) {
+			$node = new Node($name, $type);
+			
+			$sql = "INSERT INTO nodes SET name=:name, ip=:ip, status=:status, date_registration=:date, rang=:rang, type=:type";
+			$arg = array(":name" => $node->getName(), ":ip" => $node->getIP(true), ":status" => $node->getStatus(), 
+				":date" => $node->getDate(), ":rang" => $node->getRang(), ":type" => $node->getType());
 			
 			$this->model->insert($sql, $arg);
 			
@@ -40,6 +50,15 @@
 		}
 		
 		public function recieveGlobalTask($task) {
-		
+			$tasks = $this->decoder->convertTask($task);
+			
+			foreach($tasks as $one) {
+				$sql = "INSERT INTO tasks SET";
+				$arg = array();
+				
+				$this->model->insert($sql, $arg);
+			}
+			
+			$this->coder->renderOk();
 		}
 	}
