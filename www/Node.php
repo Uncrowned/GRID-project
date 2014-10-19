@@ -1,7 +1,7 @@
 <?php 
 	
 	class Node {
-		//Нужно добавить тип ноды
+		
 		private $id;
 		
 		private $name;
@@ -14,9 +14,11 @@
 		
 		private $dateTime;
 		
-		public function __construct($ip = null, $name = null, $isNew = false) {
-			if (!empty($ip)) {
-				$this->setIP($ip);
+		private $type;
+		
+		public function __construct($name = null, $type = null, $isNew = false) {
+			if (!empty($type)) {
+				$this->setType($type);
 			}
 			
 			if (!empty($name)) {
@@ -24,10 +26,15 @@
 			}
 			
 			if ($isNew) {
+				$this->setIP($_SERVER['REMOTE_ADDR']);
 				$this->setRang();
 				$this->setDate();
 				$this->setStatus(Config::$statusNode["free"]);
 			}
+		}
+		
+		public function getType() {
+			return $this->type;
 		}
 		
 		public function getID() {
@@ -56,6 +63,14 @@
 		
 		public function getRang() {
 			return $this->rang;
+		}
+		
+		public function setType($type) {
+			if (in_array($type, Config::$typeNode)) {
+				$this->type = $type;
+			} else {
+				///ААА какая то хрень вместо type
+			}
 		}
 		
 		public function setRang($rang = null) {
