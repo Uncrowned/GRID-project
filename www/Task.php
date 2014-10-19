@@ -8,9 +8,11 @@
 		
 		protected $status;
 		
-		protected $date;
+		protected $date_born;
 		
 		protected $data;
 		
 		protected $instructions;
+		
+		protected $type;
 	}
