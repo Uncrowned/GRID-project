@@ -64,6 +64,29 @@ namespace Storage
             }
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //тут ниже в зависимости от того какой файл надо сохранить и как id у ноды будет генериться ссыль 		
+            WebRequest request = WebRequest.Create("http://server.serv/download.php?id=0&filename=griffin-plachet_56957798_orig_.jpeg");
+            request.Credentials = CredentialCache.DefaultCredentials;
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            Console.WriteLine(response.StatusDescription);
+            Stream dataStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(dataStream);
+            string responseFromServer = reader.ReadToEnd();
+            textBox1.Text = responseFromServer;
+            reader.Close();
+            dataStream.Close();
+            response.Close();
+
+            WebClient wc = new WebClient();
+            Uri ui = new Uri(responseFromServer);
+            string path =ui.Segments[2];
+            textBox1.Text += "\r\n" + path;
+            wc.DownloadFileAsync(ui, path);
+
+        }
+
 
     }
 }
