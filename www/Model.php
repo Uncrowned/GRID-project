@@ -61,24 +61,4 @@
 		public function getLastInsertId() {
 			return $this->db->lastInsertId();
 		}
-		
-		public function selectNodeBy($field, $value) {
-			$sql = "SELECT * FROM nodes WHERE ".$field."=:value";
-			$arg = array(":value" => $value);
-			
-			$result = $this->select($sql, $arg);
-			$count = count($result);
-			if (empty($result) || $count > 1) {
-				return false;
-			}
-			
-			$node = new Node($result["name"], $result["type"]);
-			$node->setRang($result["rang"]);
-			$node->setStatus($result["status"]);
-			$node->setDate($result["date_registration"]);
-			$node->setIP($result["ip"]);
-			$node->setID($result["id"]);
-			
-			return $node;
-		}
 	}

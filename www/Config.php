@@ -5,7 +5,9 @@
 		public static $dbCfg = array("host" => "localhost", "userName" => "root", 
             "password" => "", "dbName" => "grid_server", "prefix" => "");
 		
-		public static $statusNode = array("free" => 0, "busy" => 1, "dead" => 2);
+		public static $statusNode = array("free", "busy", "dead");
 		
-		public static $typeNode = array("calculator" => 0, "storage" => 1);
+		public static $typeNode = array("calculator", "storage");
+		
+		public static $statusTask = array("available", "underway", "done");
 	}

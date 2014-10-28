@@ -29,7 +29,7 @@
 				$this->setIP($_SERVER['REMOTE_ADDR']);
 				$this->setRang();
 				$this->setDate();
-				$this->setStatus(Config::$statusNode["free"]);
+				$this->setStatus(Config::$statusNode[0]);
 			}
 		}
 		
@@ -37,7 +37,7 @@
 			return $this->type;
 		}
 		
-		public function getID() {
+		public function getId() {
 			return $this->id;
 		}
 		
@@ -53,7 +53,7 @@
 			return $this->name;
 		}
 		
-		public function getIP($isLong = false) {
+		public function getIp($isLong = false) {
 			if ($isLong) {
 				return ip2long($this->ip);
 			} else {
@@ -101,11 +101,11 @@
 			$this->name = $name;
 		}
 		
-		public function setIP($ip) {
+		public function setIp($ip) {
 			$this->ip = $ip;
 		}
 		
-		public function setID($id) {
+		public function setId($id) {
 			if (is_numeric($id)) {
 				$this->id = $id;
 			} else {
