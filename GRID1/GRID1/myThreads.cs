@@ -51,12 +51,24 @@ namespace GRID1
                 try
                 {
                     //Сначала надо коннект проверить)
-                    serverAnswer=GET("http://www.yandex.ru","");
+                    serverAnswer=GET("http://www.google.ru","");
                     setTask(serverAnswer);
                 }
                 catch
                 {
-                    MessageBox.Show("Incorrect server answer");
+                    //Если главная форма приложения не закрыта, то значит возникла
+                    //ошибка при "общении" с сервером.
+                    if (MainWindow.getFormAlive() == true)
+                    {
+                        MessageBox.Show("Incorrect server answer");
+                    }
+                    //Если главная форма закрыта, то это не ошибка, а несогласованность в работе потоков.
+                    //Реагировать на возникшее исклчение в этом случае не надо. Просто уступаем ресурсы
+                    //диспетеру потоков, чтобы основной поток завершил все остальные.
+                    else
+                    {
+                        Thread.Yield();
+                    }
                 }
                 //The thread is sleeping a specified by requestInterval variable time
                 Thread.Sleep(requestInterval);

@@ -19,21 +19,39 @@ namespace GRID1
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+        //Это переменная флаг, используется для того, чтобы обозначать текущее состояние формы.
+        //Она используется для того чтобы другие потоки приложения могли в любой момент
+        //времени узнать текущее состояние формы (открыта/закрыта).
+        static protected bool formAlive = true;
+
+        public static void setFormAlive(bool value)
+        {
+            formAlive = value;
+        }
+
+        public static bool getFormAlive()
+        {
+            return formAlive;
+        }
+
         public Thread calculationThread;
         public Thread communicateThread;
 
 		public MainWindow()
 		{
 			this.InitializeComponent();
+            setFormAlive(true);
 
             calculationThread = new Thread(new ThreadStart(myThreads.calculatingProc));
             communicateThread = new Thread(new ThreadStart(myThreads.communicateProc));
             communicateThread.Start();
             calculationThread.Start();
+            Thread.Yield();
 		}
 
         protected override void OnClosed(EventArgs e)
         {
+            setFormAlive(false);
             base.OnClosed(e);
             calculationThread.Abort();
             communicateThread.Abort();
