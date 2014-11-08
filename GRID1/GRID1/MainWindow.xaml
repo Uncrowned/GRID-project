@@ -8,8 +8,8 @@
 	Width="430" Height="470" ResizeMode="CanMinimize" FontFamily="Snap ITC" FontSize="21.333" Topmost="False">
 	<Window.Background>
 		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-			<GradientStop Color="Black" Offset="0"/>
-			<GradientStop Color="#FF73E56A" Offset="1"/>
+			<GradientStop Color="Black"/>
+			<GradientStop Color="#FFB6DAB3" Offset="0.918"/>
 		</LinearGradientBrush>
 	</Window.Background>
 
@@ -20,7 +20,7 @@
 					<GradientStop Color="#FFF6F6F6" Offset="0.25"/>
 					<GradientStop Color="#FFEAE8E8" Offset="0.25"/>
 					<GradientStop Color="#FFDCD9D9" Offset="0.8"/>
-					<GradientStop Color="#FF47D25C" Offset="1"/>
+					<GradientStop Color="#FF82B48A" Offset="1"/>
 				</LinearGradientBrush>
 			</Menu.Background>
 			<MenuItem Header="File"/>
@@ -30,19 +30,19 @@
 			<Canvas.Background>
 				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
 					<GradientStop Color="Black" Offset="0"/>
-					<GradientStop Color="#FF20F1BD" Offset="1"/>
+					<GradientStop Color="#FF99B69B" Offset="1"/>
 				</LinearGradientBrush>
 			</Canvas.Background>
 			<TextBlock Canvas.Left="17" TextWrapping="Wrap" Canvas.Top="30" Text="You are ofline now" FontFamily="Snap ITC" FontSize="21.333"/>
 		</Canvas>
 		<DockPanel Height="155" LastChildFill="False" Margin="0,27,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="216">
-			<Button Content="Connect" Width="120" Height="44.623" Cursor="Hand" FontFamily="Snap ITC" FontSize="21.333" VerticalAlignment="Top" DockPanel.Dock="Right" Margin="0,30,40,60">
+			<Button Name="ConnectBut" Click="OnConnectButClick" ClickMode="Press" Content="Connect" Width="120" Height="44.623" Cursor="Hand" FontFamily="Snap ITC" FontSize="21.333" VerticalAlignment="Top" DockPanel.Dock="Right" Margin="0,30,40,60">
 				<Button.Background>
 					<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
 						<GradientStop Color="#FFF3F3F3" Offset="0"/>
 						<GradientStop Color="#FFEBEBEB" Offset="0.5"/>
 						<GradientStop Color="#FFDDDDDD" Offset="0.5"/>
-						<GradientStop Color="#FF56810D" Offset="1"/>
+						<GradientStop Color="#FF96A57D" Offset="1"/>
 					</LinearGradientBrush>
 				</Button.Background>
 			</Button>
@@ -52,13 +52,13 @@
 		<TextBlock HorizontalAlignment="Left" Margin="25,142,0,0" TextWrapping="Wrap" Text="IP :" VerticalAlignment="Top" FontFamily="Snap ITC" FontSize="21.333"/>
 		<TextBlock HorizontalAlignment="Left" Margin="25,193.859,0,0" TextWrapping="Wrap" Text="Name :" VerticalAlignment="Top" FontFamily="Snap ITC" FontSize="21.333"/>
 		<TextBox Margin="140,197.906,138,0" TextWrapping="Wrap" FontFamily="Times New Roman" FontSize="16" VerticalAlignment="Top" Height="25.511"/>
-		<Button Content="OK" HorizontalAlignment="Right" Margin="0,197.906,40,0" Width="75" FontFamily="Snap ITC" VerticalAlignment="Top" Height="26.243" FontSize="12">
+        <Button Name="NameBut" Click="OnNameButClick" ClickMode="Press" Content="OK" HorizontalAlignment="Right" Margin="0,197.906,40,0" Width="75" FontFamily="Snap ITC" VerticalAlignment="Top" Height="26.243" FontSize="12">
 			<Button.Background>
 				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
 					<GradientStop Color="#FFF3F3F3" Offset="0"/>
 					<GradientStop Color="#FFEBEBEB" Offset="0.5"/>
 					<GradientStop Color="#FFDDDDDD" Offset="0.5"/>
-					<GradientStop Color="#FF75B827" Offset="1"/>
+					<GradientStop Color="#FFA0BA82" Offset="1"/>
 				</LinearGradientBrush>
 			</Button.Background>
 		</Button>

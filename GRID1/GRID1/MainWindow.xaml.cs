@@ -24,6 +24,7 @@ namespace GRID1
         //времени узнать текущее состояние формы (открыта/закрыта).
         static protected bool formAlive = true;
 
+        userInfo user = userInfo.Instance();
         public static void setFormAlive(bool value)
         {
             formAlive = value;
@@ -41,10 +42,7 @@ namespace GRID1
 		{
 			this.InitializeComponent();
             setFormAlive(true);
-
             calculationThread = new Thread(new ThreadStart(myThreads.calculatingProc));
-            communicateThread = new Thread(new ThreadStart(myThreads.communicateProc));
-            communicateThread.Start();
             calculationThread.Start();
             Thread.Yield();
 		}
@@ -55,6 +53,18 @@ namespace GRID1
             base.OnClosed(e);
             calculationThread.Abort();
             communicateThread.Abort();
+        }
+        
+        void OnConnectButClick(object sender, RoutedEventArgs e)
+        {
+            communicateThread = new Thread(new ThreadStart(myThreads.communicateProc));
+            communicateThread.Start();
+            Thread.Yield();
+        }
+
+        void OnNameButClick(object sender, RoutedEventArgs e)
+        {
+            user.setUserName("");
         }
 	}
 }

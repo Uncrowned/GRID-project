@@ -14,7 +14,7 @@ namespace GRID1
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            
+            userInfo user = userInfo.Instance();
         }
         protected override void OnExit(ExitEventArgs e)
         {
