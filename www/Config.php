@@ -10,4 +10,6 @@
 		public static $typeNode = array("calculator", "storage");
 		
 		public static $statusTask = array("available", "underway", "done");
+		
+		
 	}

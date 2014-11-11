@@ -1,5 +1,6 @@
 <?php 
 	include_once "Model.php";
+	include_once "Node.php";
 	
 	class GridModel extends Model{
 		
@@ -21,5 +22,17 @@
 			$node->setId($result["id"]);
 			
 			return $node;
+		}
+		
+		public function changeNodeStatus($id, $status) {
+			$sql = "UPDATE nodes SET status=:status WHERE id=:id";
+			$arg = array(":id" => $id, ":status" => $status);
+			$this->model->update($sql, $arg);
+		}
+		
+		public function changeTaskStatus($id, $status) {
+			$sql = "UPDATE tasks SET status=:status WHERE id=:id";
+			$arg = array(":id" => $id, ":status" => $status);
+			$this->model->update($sql, $arg);
 		}
 	}
