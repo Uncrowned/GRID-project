@@ -70,7 +70,7 @@ namespace Storage
         private void button2_Click(object sender, EventArgs e)
         {
             //тут ниже в зависимости от того какой файл надо сохранить и как id у ноды будет генериться ссыль 		
-            var responseFromServer = GET("http://server.serv/download.php?id="+id+"&filename=griffin-plachet_56957798_orig_.jpeg");
+            var responseFromServer = GET("http://yiiserver?r=storage/download&id="+id+"&filename=");
             
             textBox1.Text = responseFromServer.ToString();
             WebClient wc = new WebClient();

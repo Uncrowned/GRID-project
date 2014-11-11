@@ -7,6 +7,7 @@ use Yii;
 /**
  * This is the model class for table "storage".
  *
+
  * @property integer $node_id
  * @property integer $task_id
  * @property integer $answer_id
@@ -28,8 +29,8 @@ class Storage extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['task_id', 'answer_id', 'time'], 'integer'],
-            [['time'], 'required']
+            [['node_id', 'time'], 'required'],
+            [['node_id', 'task_id', 'answer_id', 'time'], 'integer']
         ];
     }
 
