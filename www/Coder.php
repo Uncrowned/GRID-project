@@ -1,5 +1,5 @@
 <?php 
-$mes= "моя первая";
+$mes= "Artur loh";
 $coder = new Coder();
 //$coder->renderOk();
 $coder->renderError($mes);
@@ -7,13 +7,12 @@ $coder->renderError($mes);
 class Coder {
 	
 	public function renderOk() {
-		$message = array('answer'=>true);
+		$message = array('answer' => true);
 		echo json_encode($message);
 	}
 	
 	public function renderError($error) {
-    var_dump($error);
-	  $message = array('answer'=>array('error'=>$error));
+		$message = array('answer' => array('error' => $error));
 		echo json_encode($message);
 	}
 	
@@ -21,7 +20,7 @@ class Coder {
 	
 	}
 	
-	public function renderTask($taskId, $task) {
+	public function renderTask($nodeId, $task) {
 	
 	}
 }
