@@ -17,7 +17,7 @@ class Coder {
 	}
 	
 	public function renderNodeId($id) {
-	    $message = array('answer' => array('error' => $id));
+	    $message = array('answer' => array('id' => $id));
 		echo json_encode($message);
 	
 	}
