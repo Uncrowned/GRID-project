@@ -4,7 +4,7 @@
 class Coder {
 	
 	public function renderOk() {
-    $message = array('answer'=>true);
+		$message = array('answer'=>true);
 		echo json_encode($message);
 	}
 
