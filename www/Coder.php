@@ -1,7 +1,8 @@
 <?php 
-
+$mes= "моя первая";
 $coder = new Coder();
-$coder->renderOk();
+//$coder->renderOk();
+$coder->renderError($mes);
 
 class Coder {
 	
@@ -11,7 +12,9 @@ class Coder {
 	}
 	
 	public function renderError($error) {
-	
+    var_dump($error);
+	  $message = array('answer'=>array('error'=>$error));
+		echo json_encode($message);
 	}
 	
 	public function renderNodeId($id) {
