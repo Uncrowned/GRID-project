@@ -1,5 +1,5 @@
 <?php 
-$mes= "Artur loh";
+$mes= "Artur krasava";
 $coder = new Coder();
 //$coder->renderOk();
 $coder->renderError($mes);
