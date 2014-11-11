@@ -18,7 +18,7 @@
 			$node = $this->recieveNodeById($id);
 			
 			$sql = "SELECT * FROM tasks WHERE status=:status AND type=:type";
-			$arg = array(":status" => Config::$statusTask[0], "type" => $node->getType());
+			$arg = array(":status" => Config::$statusTask[0], ":type" => $node->getType());
 			
 			$tasks = $this->model->select($sql, $arg);
 			if (empty($tasks)) {
@@ -26,19 +26,28 @@
 				exit; //?
 			}
 			
-			$sql = "UPDATE tasks SET status=:status WHERE id=:id";
-			$arg = array(":status" => Config::$statusTask[1], ":id" => $tasks[0]["id"]);
-			$this->model->update($sql, $arg);
+			$this->model->changeNodeStatus($node->getId(), Config::$statusNod[1]);
+			$this->model->changeTaskStatus($tasks[0]["id"], Config::$statusTask[1]);
 			
-			$this->coder->renderTask(new Task($tasks));
+			//insert into schedule
+			$sql = "INSERT INTO schedule SET node_id=:node, task_id=:task, date_get=:date, date_refresh=:refresh";
+			$arg = array(":node" => $node->getId(), ":task" => $tasks[0]["id"], ":date" => time(), ":refresh" => time());
+			$this->model->insert($sql, $arg);
+			
+			$this->coder->renderTask($node->getId(), new Task($tasks));
 		}
 		
-		public function setTaskDone($id, $answer) {
-			/**
-			*
-			*
-			*
-			*/
+		public function setTaskDone($nodeId, $taskId, $answer) {
+			$this->model->changeNodeStatus($nodeId, Config::$statusNode[0]);
+			$this->model->changeTaskStatus($taskId, Config::$statusTask[2]);
+			
+			$sql = "INSERT INTO answers SET value=:value, date=:date, task_id=:task, node_id=:node"
+			$arg = array();
+			$this->model->insert($sql, $arg);
+			
+			//update or delete schedule
+			
+			$this->coder->renderOk();
 		}
 		
 		private function recieveNodeById($id) {
@@ -63,14 +72,10 @@
 				$arg = array(":node" => $schedule["node_id"], ":task" => $schedule["task_id"]);
 				$this->model->delete($sql, $arg);
 				
-				$sql = "UPDATE task SET status=:status WHERE id=:id";
-				$arg = array(":status" => Config::$statusTask[0], ":id" => $schedule["task_id"]);
-				$this->model->update($sql, $arg);
+				$this->model->changeTaskStatus($schedule["task_id"], Config::$statusTask[0]);
 			}
 			
-			$sql = "UPDATE nodes SET status=:status WHERE id=:id";
-			$arg = array(":status" => Config::$statusNode[2], ":id" => $node->getId());
-			$this->model->update($sql, $arg);
+			$this->model->changeNodeStatus($node->getId(), Config::$statusNode[2]);
 			
 			$this->coder->renderOk();
 		}
@@ -98,8 +103,8 @@
 		public function recieveGlobalTask($task) {
 			$tasks = $this->decoder->convertTask($task);
 			
+			$sql = "INSERT INTO tasks SET";
 			foreach($tasks as $one) {
-				$sql = "INSERT INTO tasks SET";
 				$arg = array();
 				
 				$this->model->insert($sql, $arg);
