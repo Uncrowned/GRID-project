@@ -1,9 +1,11 @@
 <?php 
-
+   $coder = new Coder();
+   $coder->renderOk();
 class Coder {
 	
 	public function renderOk() {
-		echo "Артур рак ибаный";
+    $message = array('answer'=>true);
+		echo json_encode($message);
 	}
 
 }
