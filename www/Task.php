@@ -1,8 +1,16 @@
 <?php 	
-	//ýòî äîëæíî áûòü èíòåðôåéñîì
+	//Ã½Ã²Ã® Ã¤Ã®Ã«Ã¦Ã­Ã® Ã¡Ã»Ã²Ã¼ Ã¨Ã­Ã²Ã¥Ã°Ã´Ã¥Ã©Ã±Ã®Ã¬
 	class Task {
 	
 		//public $fields = array();
+		public function __construct($task) {
+			$this->id = $task["id"];
+			$this->status = $task["status"];
+			$this->date_born = $task["date_born"];
+			$this->data = $task["data"];
+			$this->instructions = $task["instructions"];
+			$this->type = $task["type"];
+		}
 		
 		protected $id;
 		
