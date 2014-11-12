@@ -1,8 +1,4 @@
 <?php 
-$mes= "Artur krasava";
-$coder = new Coder();
-//$coder->renderOk();
-$coder->renderError($mes);
 
 class Coder {
 	
@@ -17,12 +13,15 @@ class Coder {
 	}
 	
 	public function renderNodeId($id) {
-	    $message = array('answer' => array('id' => $id));
+	    	$message = array('answer' => array('nodeId' => $id));
 		echo json_encode($message);
-	
 	}
 	
 	public function renderTask($nodeId, $task) {
-	
+		$message = array('answer' => array(
+			'nodeId' => $nodeId,
+			'task' => $task
+			));
+		echo json_encode($message);
 	}
 }
