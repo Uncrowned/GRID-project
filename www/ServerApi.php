@@ -1,5 +1,5 @@
 <?php 
-	//åùå áû url manager çàìóòèòü íå ïëîõî
+	//Ã¥Ã¹Ã¥ Ã¡Ã» url manager Ã§Ã Ã¬Ã³Ã²Ã¨Ã²Ã¼ Ã­Ã¥ Ã¯Ã«Ã®ÃµÃ®
 	class ServerApi {
 		
 		private $model;
@@ -34,7 +34,7 @@
 			$arg = array(":node" => $node->getId(), ":task" => $tasks[0]["id"], ":date" => time(), ":refresh" => time());
 			$this->model->insert($sql, $arg);
 			
-			$this->coder->renderTask($node->getId(), new Task($tasks));
+			$this->coder->renderTask($node->getId(), new Task($tasks[0]));
 		}
 		
 		public function setTaskDone($nodeId, $taskId, $answer) {
