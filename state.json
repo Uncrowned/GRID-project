@@ -1,0 +1,23 @@
+{
+"Nodes-availability": {
+"node1": "available",
+"node2": "unavailable",
+"node3": "unavailable",
+"n6336": "unavailable",
+"node5": "available",
+"node6": "available",
+"node7": "unavailable",
+"kolyan": "molodets"
+"35636": "available",
+"35467": "unavailable",
+}
+"Nodes-task": {
+"node1": "multiply",
+"node2": "add",
+"node3": "degree",
+"n6336": "expanent",
+"node5": "multiply",
+"node6": "degree"
+"node7": "idle"
+}
+}

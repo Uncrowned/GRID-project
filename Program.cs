@@ -38,7 +38,6 @@ namespace _2
                     //foreach (var node in doc.) //SelectNodes("response"))
                     //{
                     //    ret.Add()
-
                     //}
                 }
                 catch (XmlException e)
